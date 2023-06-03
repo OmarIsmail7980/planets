@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import data from "../data.json";
-import menu from "../assets/icon-hamburger.svg";
 
 const Navbar = () => {
   const [screenStyle, setScreenStyle] = useState("flex-row justify-between");
@@ -26,25 +25,27 @@ const Navbar = () => {
   }, []);
 
   return (
-    <header className=" border-b border-[#979797] px-5 pb-5 bg-transparent">
-      <nav className={`flex ${screenStyle}`}>
-        <div className="pt-2 mt-1 text-center">The Planets</div>
+    <header className=" border-b border-[var(--secondary-color)] px-5 pb-2 bg-transparent">
+      <nav className={`flex ${screenStyle} items-center`}>
+        <div className="pt-2 pb-1 text-center font-antonio text-[18px]">
+          The Planets
+        </div>
 
         {width > 550 ? (
-          <div className="flex justify-center">
+          <ul className="flex font-league-spartan text-[var(--secondary-color)]">
             {data.map((planet, index) => (
-              <h3
+              <li
                 key={index + planet.name}
-                className="px-2 text-center pt-2 hover:border border-t-black cursor-pointer"
+                className="px-2 pt-2 cursor-pointer hover:text-[#fff]"
               >
                 {planet.name}
-              </h3>
+              </li>
             ))}
-          </div>
+          </ul>
         ) : (
           <>
             <svg
-              className="w-[15px] h-[15px] object-contain mt-3"
+              className=" mt-2"
               xmlns="http://www.w3.org/2000/svg"
               width="24"
               height="17"

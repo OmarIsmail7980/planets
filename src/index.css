@@ -1,7 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Antonio:wght@500;700&family=League+Spartan&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root{
-  
+:root {
+  --antonio: "Antonio", sans-serif;
+  --league-spartan: "League Spartan", sans-serif;
+  --secondary-color: #D8D8D8;
 }

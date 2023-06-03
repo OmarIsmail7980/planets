@@ -1,5 +1,7 @@
 import { useState } from "react";
-import { Navbar } from "./components";
+import { Details, Navbar } from "./components";
+import data from "./data.json";
+import mercuryImg from "./assets/planet-mercury.svg";
 import bg from "./assets/background-stars.svg";
 
 function App() {
@@ -12,6 +14,7 @@ function App() {
         style={{ backgroundImage: `url(${bg})` }}
       >
         {/* Content of your app */}
+        <Details details={data[0]} image={mercuryImg} />
       </div>
     </main>
   );
