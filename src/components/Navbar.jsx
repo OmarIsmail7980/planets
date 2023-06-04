@@ -25,7 +25,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <header className=" border-b border-[var(--secondary-color)] px-5 pb-2 bg-transparent">
+    <header className=" border-b border-[var(--secondary-color)] px-5 pb-5 bg-transparent">
       <nav className={`flex ${screenStyle} items-center`}>
         <div className="pt-2 pb-1 text-center font-antonio text-[18px]">
           The Planets

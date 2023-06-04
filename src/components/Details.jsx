@@ -3,9 +3,9 @@ import sourceIcon from "../assets/icon-source.svg";
 const Details = ({ details, image }) => {
   console.log(details, image);
   return (
-    <section className="flex flex-col justify-center mt-10 h-screen mx-20">
+    <section className="flex flex-col justify-center mt-10 h-screen mx-32">
       <div className="flex ml-10">
-        <div className="flex-1 justify-center items-center flex">
+        <div className="flex-grow-0 flex-shrink-0 w-2/3 justify-center items-center flex">
           <img
             className="w-[300px] h-[300px] object-cover"
             src={image}
@@ -20,7 +20,12 @@ const Details = ({ details, image }) => {
             <p className="text-[18px]">{details.overview.content}</p>
             <small className="mt-5 flex text-[14px]">
               Source:
-              <a className="underline mx-1" href={details.overview.source}>
+              <a
+                className="underline mx-1"
+                href={details.overview.source}
+                target="_blank"
+                rel="noreferrer"
+              >
                 Wikipedia
               </a>
               <svg
@@ -69,30 +74,38 @@ const Details = ({ details, image }) => {
       </div>
 
       <div className="flex justify-between flex-wrap mt-20 mb-48">
-        <div className="border border-[var(--secondary-color)] py-5 px-10 flex flex-col items-start uppercase">
-          <p className="text-[12px] text-[var(--secondary-color)]">
+        <div className="border border-[var(--secondary-color)] w-[255px] p-5 flex flex-col items-start uppercase">
+          <p className="text-[12px] text-[var(--secondary-color)] font-league-spartan">
             ROTATION TIME
           </p>
-          <h1 className="font-medium text-[28px] mt-1">{details.rotation}</h1>
+          <h1 className="font-medium text-[28px] mt-1 font-antonio">
+            {details.rotation}
+          </h1>
         </div>
 
-        <div className="border border-[var(--secondary-color)] py-5 px-10 flex flex-col items-start uppercase">
-          <p className="text-[12px] text-[var(--secondary-color)]">
+        <div className="border border-[var(--secondary-color)] w-[255px] p-5 flex flex-col items-start uppercase">
+          <p className="text-[12px] text-[var(--secondary-color)] font-league-spartan">
             REVOLUTION TIME
           </p>
-          <h1 className="font-medium text-[28px] mt-1">{details.revolution}</h1>
+          <h1 className="font-medium text-[28px] mt-1 font-antonio">
+            {details.revolution}
+          </h1>
         </div>
 
-        <div className="border border-[var(--secondary-color)] py-5 px-10 flex flex-col items-start uppercase">
-          <p className="text-[12px] text-[var(--secondary-color)]">RADIUS</p>
-          <h1 className="font-medium text-[28px] mt-1">{details.radius}</h1>
+        <div className="border border-[var(--secondary-color)] w-[255px] p-5 flex flex-col items-start uppercase">
+          <p className="text-[12px] text-[var(--secondary-color)] font-league-spartan">
+            RADIUS
+          </p>
+          <h1 className="font-medium text-[28px] mt-1 font-antonio">
+            {details.radius}
+          </h1>
         </div>
 
-        <div className="border border-[var(--secondary-color)] py-5 px-10 flex flex-col items-start uppercase">
-          <p className="text-[12px] text-[var(--secondary-color)]">
+        <div className="border border-[var(--secondary-color)] w-[255px] p-5 flex flex-col items-start uppercase">
+          <p className="text-[12px] text-[var(--secondary-color)] font-league-spartan">
             AVERAGE TEMP
           </p>
-          <h1 className="font-medium text-[28px] mt-1">
+          <h1 className="font-medium text-[28px] mt-1 font-antonio">
             {details.temperature}
           </h1>
         </div>
