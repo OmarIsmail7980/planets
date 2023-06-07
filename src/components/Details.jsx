@@ -15,6 +15,7 @@ const Details = () => {
     setText(details.overview);
     setImg(image);
     setIsGeo(false);
+    setActive("overview");
   }, [details, imagObj]);
 
   return (
@@ -117,7 +118,12 @@ const Details = () => {
 
             <div className="details-wrapper__content-buttons">
               <button
-                className={active === "overview" ? `bg-[#d8d8]` : ""}
+                style={{
+                  backgroundColor:
+                    active === "overview" ? `${details.color}` : "transparent",
+                  color:
+                    active === "overview" ? "#fff" : `var(--secondary-color)`,
+                }}
                 onClick={() => {
                   setText(details.overview);
                   setImg(image);
@@ -132,7 +138,12 @@ const Details = () => {
               </button>
 
               <button
-                className={active === "stracture" ? `bg-[#d8d8]` : ""}
+                style={{
+                  backgroundColor:
+                    active === "stracture" ? `${details.color}` : "transparent",
+                  color:
+                    active === "stracture" ? "#fff" : `var(--secondary-color)`,
+                }}
                 onClick={() => {
                   setText(details.structure);
                   setImg(stractureImg);
@@ -148,7 +159,12 @@ const Details = () => {
               </button>
 
               <button
-                className={active === "geology" ? `bg-[#d8d8]` : ""}
+                style={{
+                  backgroundColor:
+                    active === "geology" ? `${details.color}` : "transparent",
+                  color:
+                    active === "geology" ? "#fff" : `var(--secondary-color)`,
+                }}
                 onClick={() => {
                   setText(details.geology);
                   setImg(image);

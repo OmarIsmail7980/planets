@@ -1,22 +1,18 @@
-import { Details, Navbar } from "./components";
-import data from "./data.json";
-import mercuryImg from "./assets/planet-mercury.svg";
-import stractureImg from "./assets/planet-mercury-internal.svg";
-import geoImg from "./assets/geology-mercury.png";
+import { useState } from "react";
+import { Details, MobileNavbar, Navbar } from "./components";
 import bg from "./assets/background-stars.svg";
-import { UsePlanet } from "./context/PlanetContext";
-
 function App() {
   console.log(bg);
+  const [navToggle, setNavToggle] = useState(false);
   return (
     <main className="bg-[#070724] text-[#fff]">
-      <Navbar />
-      
+      <Navbar setToggle={setNavToggle} />
+
       <div
-        className="bg-cover bg-center bg-no-repeat w-full min-h-screen"
+        className="bg-cover bg-center bg-no-repeat w-full min-h-screen relative"
         style={{ backgroundImage: `url(${bg})` }}
       >
-        <Details/>
+        {navToggle ? <MobileNavbar setToggle={setNavToggle} /> : <Details />}
       </div>
     </main>
   );

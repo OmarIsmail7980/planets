@@ -5,7 +5,7 @@ import { planetsMap } from "../context/PlanetContext";
 
 import "./navbar.css";
 
-const Navbar = () => {
+const Navbar = ({ setToggle }) => {
   const [screenStyle, setScreenStyle] = useState("flex-row justify-between");
   const [width, setWidth] = useState(window.innnerWidth);
   const { setDetails, setImgObj } = UsePlanet();
@@ -53,6 +53,7 @@ const Navbar = () => {
           <>
             <svg
               className=" mt-2"
+              onClick={() => setToggle((prevVal) => !prevVal)}
               xmlns="http://www.w3.org/2000/svg"
               width="24"
               height="17"
