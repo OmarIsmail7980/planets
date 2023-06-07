@@ -1,48 +1,70 @@
-import {useState } from "react";
+import { useState, useEffect } from "react";
+import { UsePlanet } from "../context/PlanetContext";
 import "./Details.css";
 
-const Details = ({ details, images }) => {
-  const { image, stractureImg, geoImg } = images;
-  const [text, setText] = useState({
-    content: details.overview.content,
-    source: details.overview.source,
-  });
+const Details = () => {
+  const { details, imagObj } = UsePlanet();
+  const { image, stractureImg, geoImg } = imagObj;
+
+  const [text, setText] = useState(details.overview);
   const [img, setImg] = useState(image);
   const [isGeo, setIsGeo] = useState(false);
+  const [active, setActive] = useState("overview");
 
+  useEffect(() => {
+    setText(details.overview);
+    setImg(image);
+    setIsGeo(false);
+  }, [details, imagObj]);
 
   return (
     <section className="details">
       <div className="details-wrapper">
         <div className="details-wrapper__planet font-league-spartan">
           <div
-            className="details-wrapper__planet-button"
+            className={
+              active === "overview"
+                ? `bg-[var(--${details.name.toLowerCase()}-color)] text-[#fff] 
+                details-wrapper__planet-button active`
+                : `details-wrapper__planet-button active`
+            }
             onClick={() => {
               setText(details.overview);
               setImg(image);
               setIsGeo(false);
+              setActive("overview");
             }}
           >
             <h3>Overview</h3>
           </div>
 
           <div
-            className="details-wrapper__planet-button"
+            className={
+              active === "stracture"
+                ? `bg-[var(--${details.name.toLowerCase()}-color)] details-wrapper__planet-button active`
+                : `details-wrapper__planet-button active`
+            }
             onClick={() => {
               setText(details.structure);
               setImg(stractureImg);
               setIsGeo(false);
+              setActive("stracture");
             }}
           >
             <h3>Structure</h3>
           </div>
 
           <div
-            className="details-wrapper__planet-button"
+            className={
+              active === "surface"
+                ? `bg-green-700 text-[#fff] details-wrapper__planet-button active`
+                : `details-wrapper__planet-button active`
+            }
             onClick={() => {
               setText(details.geology);
               setImg(image);
               setIsGeo(true);
+              setActive("surface");
             }}
           >
             <h3>Surface</h3>
@@ -92,12 +114,16 @@ const Details = ({ details, images }) => {
                 </a>
               </p>
             </div>
+
             <div className="details-wrapper__content-buttons">
               <button
+                className={active === "overview" ? `bg-[#d8d8]` : ""}
                 onClick={() => {
                   setText(details.overview);
                   setImg(image);
                   setIsGeo(false);
+
+                  setActive("overview");
                 }}
               >
                 <p className="pl-5">
@@ -106,10 +132,13 @@ const Details = ({ details, images }) => {
               </button>
 
               <button
+                className={active === "stracture" ? `bg-[#d8d8]` : ""}
                 onClick={() => {
                   setText(details.structure);
                   setImg(stractureImg);
                   setIsGeo(false);
+
+                  setActive("stracture");
                 }}
               >
                 <p className="pl-5">
@@ -119,10 +148,13 @@ const Details = ({ details, images }) => {
               </button>
 
               <button
+                className={active === "geology" ? `bg-[#d8d8]` : ""}
                 onClick={() => {
                   setText(details.geology);
                   setImg(image);
                   setIsGeo(true);
+
+                  setActive("geology");
                 }}
               >
                 <p className="pl-5">

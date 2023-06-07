@@ -1,10 +1,15 @@
 import { useState, useEffect } from "react";
 import data from "../data.json";
+import { UsePlanet } from "../context/PlanetContext";
+import { planetsMap } from "../context/PlanetContext";
+
+import "./navbar.css";
 
 const Navbar = () => {
   const [screenStyle, setScreenStyle] = useState("flex-row justify-between");
   const [width, setWidth] = useState(window.innnerWidth);
-  console.log(width);
+  const { setDetails, setImgObj } = UsePlanet();
+  console.log(planetsMap);
 
   const handleView = () => {
     setWidth(window.innerWidth);
@@ -25,11 +30,9 @@ const Navbar = () => {
   }, []);
 
   return (
-    <header className=" border-b border-[var(--secondary-color)] px-5 pb-5 bg-transparent">
-      <nav className={`flex ${screenStyle} items-center`}>
-        <div className="pt-2 pb-1 text-center font-antonio text-[18px]">
-          The Planets
-        </div>
+    <header className="navbar-wrapper">
+      <nav className="navbar">
+        <div className="navbar__logo font-antonio">The Planets</div>
 
         {width > 550 ? (
           <ul className="flex font-league-spartan text-[var(--secondary-color)]">
@@ -37,6 +40,10 @@ const Navbar = () => {
               <li
                 key={index + planet.name}
                 className="px-2 pt-2 cursor-pointer hover:text-[#fff]"
+                onClick={() => {
+                  setDetails(planet);
+                  setImgObj(planetsMap.get(planet.name.toLowerCase()));
+                }}
               >
                 {planet.name}
               </li>
