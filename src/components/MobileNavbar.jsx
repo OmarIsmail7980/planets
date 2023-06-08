@@ -5,6 +5,7 @@ import "./MobileNavbar.css";
 
 const MobileNavbar = ({ setToggle }) => {
   const { setDetails, setImgObj } = UsePlanet();
+  
   return (
     <section className="mobile-nav">
       {data.map((planet, index) => {

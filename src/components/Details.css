@@ -122,6 +122,9 @@
   display: flex;
 }
 .details-wrapper__content-text-source-link {
+  display:flex;
+  gap:5px;
+  
   text-decoration: underline;
   margin: 0 0.5rem;
 }
@@ -166,7 +169,7 @@
   }
   .details-wrapper__information {
     gap: 3.2rem;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
   }
   .details-wrapper__information-wrapper {
     width: 175px;

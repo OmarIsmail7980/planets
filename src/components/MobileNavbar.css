@@ -23,3 +23,9 @@
     margin-top: 5px;
 }
 
+@media screen and (min-width:560px){
+    .mobile-nav{
+        display:none;
+    }
+}
+
