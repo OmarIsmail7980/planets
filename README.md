@@ -41,8 +41,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Add solution URL here](https://github.com/OmarIsmail7980/planets)
+- Live Site URL: [Add live site URL here](https://planet-ed.netlify.app)
 
 ## My process
 - Implemented the project with React.js, Tailwind css and CSS3. my approach for this project was to break down the project into smaller manageable junks and generalizing my components so they can be reusable. 
