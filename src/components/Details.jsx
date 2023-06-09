@@ -23,12 +23,6 @@ const Details = () => {
       <div className="details-wrapper">
         <div className="details-wrapper__planet font-league-spartan">
           <div
-            className={
-              active === "overview"
-                ? `bg-[var(--${details.name.toLowerCase()}-color)] text-[#fff] 
-                details-wrapper__planet-button active`
-                : `details-wrapper__planet-button active`
-            }
             onClick={() => {
               setText(details.overview);
               setImg(image);
@@ -36,15 +30,24 @@ const Details = () => {
               setActive("overview");
             }}
           >
-            <h3>Overview</h3>
+            <h3
+              style={
+                active === "overview"
+                  ? { color: "#fff" }
+                  : { color: "var(--secondary-color)", opacity: 0.5 }
+              }
+            >
+              Overview
+            </h3>
+            {active === "overview" && (
+              <div
+                style={{ background: details.color }}
+                className="w-[75px] h-[2px] absolute bottom-0"
+              ></div>
+            )}
           </div>
 
           <div
-            className={
-              active === "stracture"
-                ? `bg-[var(--${details.name.toLowerCase()}-color)] details-wrapper__planet-button active`
-                : `details-wrapper__planet-button active`
-            }
             onClick={() => {
               setText(details.structure);
               setImg(stractureImg);
@@ -52,15 +55,24 @@ const Details = () => {
               setActive("stracture");
             }}
           >
-            <h3>Structure</h3>
+            <h3
+              style={
+                active === "stracture"
+                  ? { color: "#fff" }
+                  : { color: "var(--secondary-color)", opacity: 0.5 }
+              }
+            >
+              Structure
+            </h3>
+            {active === "stracture" && (
+              <div
+                style={{ background: details.color }}
+                className="w-[75px] h-[2px] absolute bottom-0"
+              ></div>
+            )}
           </div>
 
           <div
-            className={
-              active === "surface"
-                ? `bg-green-700 text-[#fff] details-wrapper__planet-button active`
-                : `details-wrapper__planet-button active`
-            }
             onClick={() => {
               setText(details.geology);
               setImg(image);
@@ -68,7 +80,21 @@ const Details = () => {
               setActive("surface");
             }}
           >
-            <h3>Surface</h3>
+            <h3
+              style={
+                active === "surface"
+                  ? { color: "#fff" }
+                  : { color: "var(--secondary-color)", opacity: 0.5 }
+              }
+            >
+              Surface
+            </h3>
+            {active === "surface" && (
+              <div
+                style={{ background: details.color }}
+                className="w-[75px] h-[2px] absolute bottom-0"
+              ></div>
+            )}
           </div>
         </div>
 
@@ -120,9 +146,8 @@ const Details = () => {
               <button
                 style={{
                   backgroundColor:
-                    active === "overview" ? `${details.color}` : "transparent",
-                  color:
-                    active === "overview" ? "#fff" : `var(--secondary-color)`,
+                    active === "overview" ? `${details.color}` : "",
+                  color: active === "overview" ? "#fff" : ``,
                 }}
                 onClick={() => {
                   setText(details.overview);
@@ -133,16 +158,18 @@ const Details = () => {
                 }}
               >
                 <p className="pl-5">
-                  <span className="text bg-transparent">01</span> Overview
+                  <span className="text bg-transparent text-[var(--secondary-color)]">
+                    01
+                  </span>{" "}
+                  <span className="hover:text-[#fff]">Overview</span>
                 </p>
               </button>
 
               <button
                 style={{
                   backgroundColor:
-                    active === "stracture" ? `${details.color}` : "transparent",
-                  color:
-                    active === "stracture" ? "#fff" : `var(--secondary-color)`,
+                    active === "stracture" ? `${details.color}` : "",
+                  color: active === "stracture" ? "#fff" : ``,
                 }}
                 onClick={() => {
                   setText(details.structure);
@@ -153,17 +180,18 @@ const Details = () => {
                 }}
               >
                 <p className="pl-5">
-                  <span className="text bg-transparent">02</span> Internal
-                  Structure
+                  <span className="text bg-transparent text-[var(--secondary-color)]">
+                    02
+                  </span>{" "}
+                  <span className="hover:text-[#fff]"> Internal Structure</span>
                 </p>
               </button>
 
               <button
                 style={{
                   backgroundColor:
-                    active === "geology" ? `${details.color}` : "transparent",
-                  color:
-                    active === "geology" ? "#fff" : `var(--secondary-color)`,
+                    active === "geology" ? `${details.color}` : "",
+                  color: active === "geology" ? "#fff" : ``,
                 }}
                 onClick={() => {
                   setText(details.geology);
@@ -174,8 +202,10 @@ const Details = () => {
                 }}
               >
                 <p className="pl-5">
-                  <span className="text bg-transparent">03</span> Surface
-                  Geology
+                  <span className="text bg-transparent text-[var(--secondary-color)]">
+                    03
+                  </span>{" "}
+                  <span className="hover:text-[#fff]"> Surface Geology</span>
                 </p>
               </button>
             </div>

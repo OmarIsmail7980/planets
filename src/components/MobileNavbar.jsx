@@ -2,15 +2,31 @@ import data from "../data.json";
 import { UsePlanet } from "../context/PlanetContext";
 import { planetsMap } from "../context/PlanetContext";
 import "./MobileNavbar.css";
+import { useEffect, useState } from "react";
 
 const MobileNavbar = ({ setToggle }) => {
   const { setDetails, setImgObj } = UsePlanet();
-  
+
+  const isMobileView = () => {
+    if (window.innerWidth > 580) {
+      setToggle(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", isMobileView);
+
+    return () => {
+      window.removeEventListener("resize", isMobileView);
+    };
+  }, []);
+
   return (
     <section className="mobile-nav">
       {data.map((planet, index) => {
         return (
           <div
+            className="cursor-pointer"
             key={planet.name + index}
             onClick={() => {
               setDetails(planet);
@@ -30,7 +46,7 @@ const MobileNavbar = ({ setToggle }) => {
                 <path fill="none" stroke="#FFF" opacity=".4" d="M1 0l4 4-4 4" />
               </svg>
             </div>
-            <div className="w-full h-[1px] bg-[#fff] opacity-40 mb-4 mt-4"></div>
+            <div className="w-full h-[1px] bg-[#fff] opacity-20 mb-4 mt-4"></div>
           </div>
         );
       })}

@@ -18,9 +18,8 @@
   top: 0;
 
   width: 100%;
-  border-bottom: 1px solid var(--secondary-color);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
   text-transform: uppercase;
-  opacity: 50%;
 }
 .details-wrapper__planet-button {
   cursor: pointer;
@@ -48,6 +47,7 @@
 
   position: absolute;
   bottom: 0;
+  margin-bottom: 2rem;
 }
 .details-wrapper__content {
   display: flex;
@@ -85,7 +85,7 @@
   border: 1px solid var(--secondary-color);
 }
 .details-wrapper__content-buttons button:hover {
-  background-color: #64748b;
+  background: #64748b;
   color: #fff;
 }
 .details-wrapper__information {
@@ -119,12 +119,13 @@
 .details-wrapper__content-text-source {
   margin-top: 2rem;
   font-size: 18px;
+  color: rgba(255, 255, 255, 0.5);
   display: flex;
 }
 .details-wrapper__content-text-source-link {
-  display:flex;
-  gap:5px;
-  
+  display: flex;
+  gap: 5px;
+
   text-decoration: underline;
   margin: 0 0.5rem;
 }
@@ -175,8 +176,11 @@
     width: 175px;
   }
   .details-wrapper__content-buttons button:hover {
-    background-color: transparent;
+    background: transparent;
     color: var(--secondary-color);
+  }
+  .details-wrapper__img-geo {
+    margin-bottom: 1rem;
   }
 }
 
@@ -236,7 +240,10 @@
     font-size: 14px;
   }
   .details-wrapper__content-buttons button:hover {
-    background-color: transparent;
+    background: transparent;
     color: var(--secondary-color);
+  }
+  .details-wrapper__img-geo {
+    margin-bottom: 0.5rem;
   }
 }

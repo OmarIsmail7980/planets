@@ -1,7 +1,7 @@
 .navbar-wrapper {
   padding: 0 8rem 1.25rem 8rem;
   background: transparent;
-  border-bottom: 1px solid var(--secondary-color);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
 }
 .navbar {
   display: flex;
@@ -17,7 +17,7 @@
 
 .navbar svg {
   display: none;
-  cursor:pointer;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 1600px) {
@@ -37,6 +37,9 @@
   }
   .navbar__logo {
     font-size: 24px;
+  }
+  .showBar {
+    display: none;
   }
 }
 
@@ -59,5 +62,8 @@
 
   .navbar svg {
     display: inline;
+  }
+  .showBar {
+    display: none;
   }
 }
